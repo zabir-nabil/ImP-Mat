@@ -1,0 +1,10 @@
+guide
+num2str()
+str2num()
+get(hObject,'String');
+set(hObject,'String','Value');
+
+get(handles.tagName,'String')
+
+['My score ',num2str(95),'.'
+bitxor(5,6);
