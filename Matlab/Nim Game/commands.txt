@@ -6,5 +6,5 @@ set(hObject,'String','Value');
 
 get(handles.tagName,'String')
 
-['My score ',num2str(95),'.'
+['My score ',num2str(95),'.']
 bitxor(5,6);
