@@ -19,7 +19,9 @@
  * Introduction to Numerical Methods and Matlab Programming for Engineers - Todd Young and Martin J. Mohlenkamp (Optional)
 
  * Linear Algebra - Jim Hefferon (Optional, for indepth theoretical knowledge in Linear Algebra)
-
+ 
+ * Introduction to Linear Algebra - Gilbert Strang
+ 
  **N.B: We will mostly focus on book 1 and book 2, we will practice almost all the important matlab code snippets covered here.** 
 
  Time frame: We must complete all the pre-requisite before 8 March. (10 days) 
