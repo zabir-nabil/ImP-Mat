@@ -1,6 +1,6 @@
- #Course:
+ # Course:
  
- ###Prerequisite:
+ ### Prerequisite:
 
  * Calculus (Review the topic from net when required)
  
@@ -10,17 +10,17 @@
  
  * Probability and Statistics (Read the topic from net when encountered) 
 
- ####Book List 1:
+ #### Book List 1:
 
- *MATLAB Demystified - David McMahon (Must Read, Covers most mathematical topics required in MATLAB)
+ * MATLAB Demystified - David McMahon (Must Read, Covers most mathematical topics required in MATLAB)
 
- *Linear Algebra and Introduction to MATLAB - Sabine Eschenhof (Must Complete parallel to Book 1)
+ * Linear Algebra and Introduction to MATLAB - Sabine Eschenhof (Must Complete parallel to Book 1)
 
- *Introduction to Numerical Methods and Matlab Programming for Engineers - Todd Young and Martin J. Mohlenkamp (Optional)
+ * Introduction to Numerical Methods and Matlab Programming for Engineers - Todd Young and Martin J. Mohlenkamp (Optional)
 
- *Linear Algebra - Jim Hefferon (Optional, for indepth theoretical knowledge in Linear Algebra)
+ * Linear Algebra - Jim Hefferon (Optional, for indepth theoretical knowledge in Linear Algebra)
 
- N.B:We will mostly focus on book 1 and book 2, we will practice almost all the important matlab code snippets covered here. 
+ **N.B: We will mostly focus on book 1 and book 2, we will practice almost all the important matlab code snippets covered here.** 
 
  Time frame: We must complete all the pre-requisite before 8 March. (10 days) 
 
@@ -56,7 +56,7 @@ Phase T:
 Time frame : -----
 
 
-###Extra Help:
+### Extra Help:
  
  https://github.com/­jbhuang0604/­awesome-computer-visi­on
  
