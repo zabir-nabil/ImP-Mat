@@ -1,0 +1,92 @@
+%% My model excludes 3 features 1) scale variance (which is just another
+%% simple function of variance), 2) ApEn as it takes long time to
+%% calculate and probably contains some critical effect/bug, 3) ZC 
+
+%% Feature 1) Energy
+%% Feature 2) RMS value
+%% Feature 3) Roll off
+%% Feature 4) Variance
+%% Feature 5) MMAV
+
+%% Feature extraction from base data [19*4025] -> [5*19]
+
+N = 4025;
+
+base_t = base_data_1'; % working with transpose [4025*19]
+
+base_eng = sum(base_t.^2); % energy calculation [1*19]
+
+base_rms = sqrt(base_eng/N); % rms calculation [1*19]
+
+Nby2 = int32(N/2);
+
+base_ro = 0.85*sum(abs(base_t(1:Nby2,:))); % rolloff calculation [1*19]
+
+base_var = base_eng/(N-1); % variance calculation [1*19]
+
+% weight initialization
+
+wn = ones(1,N);
+
+for n = 1:N
+    if n < 0.25*N || n > 0.75*N
+        wn(n) = 0.5;
+    end
+end
+
+base_mmav = (wn*abs(base_t))/N; % mmav calculation [1*19]
+
+base_feature = [base_eng; base_rms; base_ro; base_var; base_mmav]; % [8*19]
+
+
+
+%% Feature extraction from left data [19*4025] -> [5*19]
+
+left_t = left_1'; % working with transpose [4025*19]
+
+left_eng = sum(left_t.^2); % energy calculation [1*19]
+
+left_rms = sqrt(left_eng/N); % rms calculation [1*19]
+
+left_ro = 0.85*sum(abs(left_t(1:Nby2,:))); % rolloff calculation [1*19]
+
+left_var = left_eng/(N-1); % variance calculation [1*19]
+
+left_mmav = (wn*abs(left_t))/N; % mmav calculation [1*19]
+
+left_feature = [left_eng; left_rms; left_ro; left_var; left_mmav]; % [8*19]
+
+
+
+%% Feature extraction from right data [19*4025] -> [5*19]
+
+right_t = right_data_1'; % working with transpose [4025*19]
+
+right_eng = sum(right_t.^2); % energy calculation [1*19]
+
+right_rms = sqrt(right_eng/N); % rms calculation [1*19]
+
+right_ro = 0.85*sum(abs(right_t(1:Nby2,:))); % rolloff calculation [1*19]
+
+right_var = right_eng/(N-1); % variance calculation [1*19]
+
+right_mmav = (wn*abs(right_t))/N; % mmav calculation [1*19]
+
+right_feature = [right_eng; right_rms; right_ro; right_var; right_mmav]; % [8*19]
+
+%%
+
+%% Final feature set
+
+input_ds = [base_feature left_feature right_feature];
+
+base_target = [ones(1,19) zeros(1,19) zeros(1,19)];
+left_target = [zeros(1,19) ones(1,19) zeros(1,19)];
+right_target = [zeros(1,19) zeros(1,19) ones(1,19)];
+
+target_ds = [base_target; left_target; right_target];
+
+%% IF target_ds = [1;0;0] -> base, target_ds = [0;1;0] -> left
+%% target_ds = [0;0;1] -> rig
+
+%%
